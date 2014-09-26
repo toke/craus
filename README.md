@@ -56,9 +56,22 @@ make
 sudo make install
 ```
 
+or (create a debian package):
+
+```
+mkdir build
+cd build
+cmake ..
+make 
+sudo checkinstall -D --pkgname=craus make install
+```
+
 or:
 
+
+
 `gcc -o kraus kraus.c`
+
 
 ## Bugs
 
