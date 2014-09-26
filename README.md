@@ -48,6 +48,15 @@ Dependencies: none
 
 Build with:
 
+```
+mkdir build
+cd build
+cmake ..
+make 
+```
+
+or:
+
 `gcc -o kraus kraus.c`
 
 ## Bugs
