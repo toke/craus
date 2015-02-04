@@ -1,6 +1,3 @@
-#ifndef _KRAUS_H_
-#define _KRAUS_H_
-
 /*
  * ----------------------------------------------------------------------------
  * "THE COFFEE-WARE LICENSE" (Revision 23):
@@ -9,6 +6,9 @@
  * this stuff is worth it, you can bring me a coffee in return.
  * ----------------------------------------------------------------------------
  */
+ 
+#ifndef _KRAUS_H_
+#define _KRAUS_H_
 
 #include <time.h>
 #include <stdlib.h>
