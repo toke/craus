@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo  """BEGIN:VCALENDAR
 VERSION:2.0
@@ -17,6 +17,7 @@ DTSTAMP;TZID=Europe/Berlin:2015${month}${day}T000000
 DTSTART;TZID=Europe/Berlin:2015${month}${day}T120000
 DTEND;TZID=Europe/Berlin:2015${month}${day}T123000
 RRULE:FREQ=YEARLY;INTERVAL=1
+EXRULE:FREQ=WEEKLY;BYDAY=SA,SU
 SUMMARY:K.R.A.U.S.: ${floor}. Stock
 CATEGORIES:KRAUS
 LOCATION:EFS 9: ${floor}. Stock
