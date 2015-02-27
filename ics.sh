@@ -1,5 +1,7 @@
 #!/bin/bash
 
+year="2015"
+
 echo  """BEGIN:VCALENDAR
 VERSION:2.0
 METHOD:PUBLISH
@@ -11,16 +13,16 @@ for doy in {0..365} ; do
     month=$(echo $dayk | awk -- '{split($1,a,"."); print a[2]}')
     floor=$(echo $dayk | awk -- '{ print $2 }')
 a="""BEGIN:VEVENT
-UID:2015${month}${day}T120000-123000@toke.de
+UID:${year}${month}${day}T120000-123000@toke.de
 URL:http://jautz.org/kraus/
-DTSTAMP;TZID=Europe/Berlin:2015${month}${day}T000000
-DTSTART;TZID=Europe/Berlin:2015${month}${day}T120000
-DTEND;TZID=Europe/Berlin:2015${month}${day}T123000
+DTSTAMP;TZID=Europe/Berlin:${year}${month}${day}T000000
+DTSTART;TZID=Europe/Berlin:${year}${month}${day}T120000
+DTEND;TZID=Europe/Berlin:${year}${month}${day}T123000
 RRULE:FREQ=YEARLY;INTERVAL=1
-EXRULE:FREQ=WEEKLY;BYDAY=SA,SU
+EXRULE:FREQ=WEEKLY;BYDAY=SA,SU;INTERVAL=1
 SUMMARY:K.R.A.U.S.: ${floor}. Stock
 CATEGORIES:KRAUS
-LOCATION:EFS 9: ${floor}. Stock
+LOCATION:Karlsruhe, Ernst-Frey-Str. 9: ${floor}. Stock
 TRANSP:TRANSPARENT
 END:VEVENT"""
 
