@@ -1,5 +1,6 @@
 language: c
 install: mkdir build ; cd build ; cmake .. ; make 
+script: ./kraus
 compiler:
     - clang
     - gcc
