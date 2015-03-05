@@ -9,6 +9,8 @@ It's origin lies far in the beginning of civilisation and was once called *Tempu
 Since being independent of a single implementation is cruical for live threatening services this fork
 has been established.
 
+[![Build Status](https://travis-ci.org/toke/craus.svg?branch=master)](https://travis-ci.org/toke/craus)
+
 ## Usage
 
 `kraus [delta] [count]`
