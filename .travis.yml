@@ -1,4 +1,5 @@
 language: c
+sudo: false
 install: mkdir build ; cd build ; cmake .. ; make 
 script: ./kraus
 compiler:
