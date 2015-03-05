@@ -1,2 +1,2 @@
 language: c
-install: make get-deps
+install: mkdir build ; cd build ; cmake .. ; make ; make install
