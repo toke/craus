@@ -1,2 +1,5 @@
 language: c
 install: mkdir build ; cd build ; cmake .. ; make ; make install
+compiler:
+    - clang
+    - gcc
