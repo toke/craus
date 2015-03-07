@@ -13,14 +13,17 @@ has been established.
 
 ## Usage
 
-`kraus [delta] [count]`
+`kraus -pjvc`
 
-List K.R.A.U.S. floor for current date + _delta_ for _count_ days. _delta_ and _count_ are optional.
+List K.R.A.U.S. floor for current date. Optional parameters `-p`, `-j` and `-v`
+are switching output to `plaintext`, `json` and `vcard`. The option `-c` followed
+by a number instructs the program to output n concurrent days in specified format.
+
 If no arguments are given the floor of the current day is printed on stdout.
 
 ### Example
 
-`kraus 0 10` will print the floor of today and the next 9 days.
+`kraus -c 10` will print the floor of today and the next 9 days.
 
 
 ## Implementation
