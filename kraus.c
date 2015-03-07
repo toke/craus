@@ -49,14 +49,13 @@ int main(int argc, char *argv[])
         return 1;
       default:
         abort ();
-      }
+    }
 
-
-     if (vcount) {
-       count = atoi(vcount);
-     } else {
-       count = 1;
-     }
+    if (vcount) {
+      count = atoi(vcount);
+    } else {
+      count = 1;
+    }
 
 
     // Calculate start date
