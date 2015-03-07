@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     char *vcount = NULL;
     int c;
 
-    void (*output)(time_t *, int );
+    void (*output)(time_t *, int);
     output = DEFAULT_FORMAT; // default output
 
 
