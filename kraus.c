@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     int c;
 
     void (*output)(time_t *, int );
-    output = &text_out; // default output
+    output = DEFAULT_FORMAT; // default output
 
 
     while ((c = getopt (argc, argv, "vpjc:")) != -1)

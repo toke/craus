@@ -22,6 +22,7 @@
 #define MIN_FLOOR 1
 #define MAX_FLOOR 8
 #define SEEDMAGIC 0x330e
+#define DEFAULT_FORMAT &text_out
 
 
 typedef unsigned int kraus_t;
