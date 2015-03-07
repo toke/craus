@@ -15,40 +15,61 @@ int main(int argc, char *argv[])
     int deltad = 0; // delta in days from current day
     unsigned int count = 1; // number of results
 
-    // Optional handling of arguments (delta days and count)
-    if (argc > 1) {
-        deltad = atoi(argv[1]);
-        if (argc > 2) {
-            count = atoi(argv[2]);
+    void (*output)(time_t *, int );
+    output = &print_floor;
+
+    char *vcount = NULL;
+    char *voutput = NULL;
+    int c;
+
+    while ((c = getopt (argc, argv, "vpjo:c:d:")) != -1)
+    switch (c)
+    {
+      case 'p':
+        output = &print_floor;
+        break;
+      case 'j':
+        output = &json_floor;
+        break;
+      case 'v':
+        output = &vcard_floor;
+        break;
+      case 'c':
+        vcount = optarg;
+        break;
+      case 'o':
+        voutput = optarg;
+        break;
+      case '?':
+        if (optopt == 'o' || optopt == 'c' || optopt == 'd') {
+          fprintf (stderr, "Option -%c requires an argument.\n", optopt);
+        } else if (isprint (optopt)) {
+          fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+        } else {
+          fprintf (stderr,
+                  "Unknown option character `\\x%x'.\n",
+                  optopt);
         }
-    }
+        return 1;
+      default:
+        abort ();
+      }
+
+
+     if (vcount) {
+       count = atoi(vcount);
+     } else {
+       count = 1;
+     }
+
 
     // Calculate start date
     time(&start_time);
     start_time += deltad;
 
-    print_floor(&start_time, count);
+    output(&start_time, count);
 
     return 0;
-}
-
-/*
-*  Plain text output
-*/
-void print_floor(time_t *start_date, int count)
-{
-    int i;
-    struct tm *kd;
-    kraus_t floor;
-
-    for (i=0; i < count; i++) {
-        kd = localtime(start_date);
-        kd->tm_mday += i;
-        mktime(kd);
-        floor = kraus_floor(kd);
-        (void) printf("Am %02i.%02i treffen wir uns in Stockwerk %i\n",
-          kd->tm_mday, kd->tm_mon + 1, floor);
-    }
 }
 
 

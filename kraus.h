@@ -13,14 +13,27 @@
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <getopt.h>
+
+#include "output.h"
 
 #define MIN_FLOOR 1
 #define MAX_FLOOR 8
 #define SEEDMAGIC 0x330e
 
+
 typedef unsigned int kraus_t;
 
+struct dm_output {
+  int (*callback)(time_t *start_date, int count);
+
+};
+
 unsigned int kraus_floor(struct tm *date);
-void print_floor(time_t *start_date, int count);
+
+
+
 
 #endif
