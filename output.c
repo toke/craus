@@ -1,4 +1,15 @@
+/*
+ * ----------------------------------------------------------------------------
+ * "THE COFFEE-WARE LICENSE" (Revision 23):
+ * <toke@toke.de> wrote this file. As long as you retain this notice you
+ * can do whatever you want with this stuff. If we meet some day, and you think
+ * this stuff is worth it, you can bring me a coffee in return.
+ * ----------------------------------------------------------------------------
+ */
+
+
 #include "output.h"
+
 
 /*
 *  Plain text output
@@ -21,7 +32,7 @@ void print_floor(time_t *start_date, int count)
 
 
 /*
-*  Plain text output
+*  JSON output
 */
 void json_floor(time_t *start_date, int count)
 {
@@ -43,7 +54,7 @@ void json_floor(time_t *start_date, int count)
 
 
 /*
-*  Plain text output
+*  VCARD output
 */
 void vcard_floor(time_t *start_date, int count)
 {
