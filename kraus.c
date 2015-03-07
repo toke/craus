@@ -12,11 +12,8 @@
 int main(int argc, char *argv[])
 {
     time_t current_time;
-    struct tm *kd;
     int deltad = 0; // delta in days from current day
     unsigned int count = 1; // number of results
-    int i;
-    kraus_t floor;
 
     // Optional handling of arguments (delta days and count)
     if (argc > 1) {
@@ -27,7 +24,7 @@ int main(int argc, char *argv[])
     }
     time(&current_time);
     current_time += deltad;
-    
+
     print_floor(&current_time, count);
 
     return 0;
