@@ -46,10 +46,11 @@ void json_out(time_t *start_date, int count)
         kd->tm_mday += i;
         mktime(kd);
         floor = kraus_floor(kd);
-        (void) printf("    {\"date\": \"%02i.%02i.%i\", \"level\": %i},\n",
+        if (i > 0) printf(",\n");
+        (void) printf("\t{\"date\": \"%02i.%02i.%i\", \"level\": %i}",
           kd->tm_mday, kd->tm_mon + 1, kd->tm_year + 1900, floor);
     }
-    printf("]}");
+    printf("\n]}\n");
 }
 
 
