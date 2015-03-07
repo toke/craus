@@ -90,7 +90,7 @@ I saw this as my challenge.
 **Fun fact:** the resulting code is just slightly smaller than the complete list of all possible values.
 The compiled version is larger. But *sssshhh* this has to kept a secret.
 
-**Pro Tip:** The command `kraus 0 365 | awk -- '{ print $2 "\tKRAUS " $8 }' > calendar` will generate a file that you be fed to the linux `calendar` program.
+**Pro Tip:** The command `kraus 0 365 | awk -- '{ print $2 "\tKRAUS " $8 }' > calendar` will generate a file that can be fed to the linux `calendar` program.
 
 ## References
 
