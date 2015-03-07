@@ -36,8 +36,8 @@ date->tm_year + 1900, date->tm_mon + 1, date->tm_mday, \
 date->tm_year + 1900, date->tm_mon + 1, date->tm_mday, \
 floor, floor
 
-void print_floor(time_t *start_date, int count);
-void json_floor(time_t *start_date, int count);
-void vcard_floor(time_t *start_date, int count);
+void text_out(time_t *start_date, int count);
+void json_out(time_t *start_date, int count);
+void vcard_out(time_t *start_date, int count);
 
 #endif

@@ -14,24 +14,24 @@ int main(int argc, char *argv[])
     time_t start_time;
     int deltad = 0; // delta in days from current day
     unsigned int count = 1; // number of results
-
-    void (*output)(time_t *, int );
-    output = &print_floor;
-
     char *vcount = NULL;
     int c;
+
+    void (*output)(time_t *, int );
+    output = &text_out; // default output
+
 
     while ((c = getopt (argc, argv, "vpjc:")) != -1)
     switch (c)
     {
       case 'p':
-        output = &print_floor;
+        output = &text_out;
         break;
       case 'j':
-        output = &json_floor;
+        output = &json_out;
         break;
       case 'v':
-        output = &vcard_floor;
+        output = &vcard_out;
         break;
       case 'c':
         vcount = optarg;

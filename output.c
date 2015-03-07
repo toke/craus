@@ -14,7 +14,7 @@
 /*
 *  Plain text output
 */
-void print_floor(time_t *start_date, int count)
+void text_out(time_t *start_date, int count)
 {
     int i;
     struct tm *kd;
@@ -34,7 +34,7 @@ void print_floor(time_t *start_date, int count)
 /*
 *  JSON output
 */
-void json_floor(time_t *start_date, int count)
+void json_out(time_t *start_date, int count)
 {
     int i;
     struct tm *kd;
@@ -56,7 +56,7 @@ void json_floor(time_t *start_date, int count)
 /*
 *  VCARD output
 */
-void vcard_floor(time_t *start_date, int count)
+void vcard_out(time_t *start_date, int count)
 {
     int i;
     struct tm *kd;
