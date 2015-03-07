@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-    time_t current_time;
+    time_t start_time;
     int deltad = 0; // delta in days from current day
     unsigned int count = 1; // number of results
 
@@ -22,20 +22,26 @@ int main(int argc, char *argv[])
             count = atoi(argv[2]);
         }
     }
-    time(&current_time);
-    current_time += deltad;
 
-    print_floor(&current_time, count);
+    // Calculate start date
+    time(&start_time);
+    start_time += deltad;
+
+    print_floor(&start_time, count);
 
     return 0;
 }
 
-void print_floor(time_t *start_date, int count) {
-  int i;
-  struct tm *kd;
-  kraus_t floor;
+/*
+*  Plain text output
+*/
+void print_floor(time_t *start_date, int count)
+{
+    int i;
+    struct tm *kd;
+    kraus_t floor;
 
-  for (i=0; i < count; i++) {
+    for (i=0; i < count; i++) {
         kd = localtime(start_date);
         kd->tm_mday += i;
         mktime(kd);
