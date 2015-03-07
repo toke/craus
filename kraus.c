@@ -52,6 +52,10 @@ void print_floor(time_t *start_date, int count)
 }
 
 
+/*
+*  Calculate kraus_t floor for given date
+*  returns kraus_t floor
+*/
 kraus_t kraus_floor(struct tm *date)
 {
     unsigned short perl_seed[2] = {0};
