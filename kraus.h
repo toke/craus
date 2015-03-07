@@ -26,14 +26,6 @@
 
 typedef unsigned int kraus_t;
 
-struct dm_output {
-  int (*callback)(time_t *start_date, int count);
-
-};
-
 unsigned int kraus_floor(struct tm *date);
-
-
-
 
 #endif
