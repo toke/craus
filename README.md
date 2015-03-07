@@ -25,6 +25,8 @@ If no arguments are given the floor of the current day is printed on stdout.
 
 `kraus -c 10` will print the floor of today and the next 9 days.
 
+`kraus -v -c 10` same as above but in VCARD format.
+
 
 ## Implementation
 
