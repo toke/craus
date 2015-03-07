@@ -9,80 +9,73 @@
 
 #include "kraus.h"
 
-int main(int argc, char *argv[])
-{
-    time_t start_time;
-    int deltad = 0; // delta in days from current day
-    unsigned int count = 1; // number of results
-    char *vcount = NULL;
-    int c;
+int main(int argc, char *argv[]) {
+  time_t start_time;
+  int deltad = 0;         // delta in days from current day
+  unsigned int count = 1; // number of results
+  char *vcount = NULL;
+  int c;
 
-    void (*output)(time_t *, int);
-    output = DEFAULT_FORMAT; // default output
+  void (*output)(time_t *, int);
+  output = DEFAULT_FORMAT; // default output
 
-
-    while ((c = getopt (argc, argv, "vpjc:")) != -1)
-    switch (c)
-    {
-      case 'p':
-        output = &text_out;
-        break;
-      case 'j':
-        output = &json_out;
-        break;
-      case 'v':
-        output = &vcard_out;
-        break;
-      case 'c':
-        vcount = optarg;
-        break;
-      case '?':
-        if (optopt == 'c') {
-          fprintf (stderr, "Option -%c requires an argument.\n", optopt);
-        } else if (isprint (optopt)) {
-          fprintf (stderr, "Unknown option `-%c'.\n", optopt);
-        } else {
-          fprintf (stderr,
-                  "Unknown option character `\\x%x'.\n",
-                  optopt);
-        }
-        return 1;
-      default:
-        abort ();
+  while ((c = getopt(argc, argv, "vpjc:")) != -1)
+    switch (c) {
+    case 'p':
+      output = &text_out;
+      break;
+    case 'j':
+      output = &json_out;
+      break;
+    case 'v':
+      output = &vcard_out;
+      break;
+    case 'c':
+      vcount = optarg;
+      break;
+    case '?':
+      if (optopt == 'c') {
+        fprintf(stderr, "Option -%c requires an argument.\n", optopt);
+      } else if (isprint(optopt)) {
+        fprintf(stderr, "Unknown option `-%c'.\n", optopt);
+      } else {
+        fprintf(stderr, "Unknown option character `\\x%x'.\n", optopt);
+      }
+      return 1;
+    default:
+      abort();
     }
 
-    count = vcount ? atoi(vcount) : 1;
+  count = vcount ? atoi(vcount) : 1;
 
-    // Calculate start date
-    time(&start_time);
-    start_time += deltad;
+  // Calculate start date
+  time(&start_time);
+  start_time += deltad;
 
-    output(&start_time, count);
+  output(&start_time, count);
 
-    return 0;
+  return 0;
 }
-
 
 /*
 *  Calculate kraus_t floor for given date
 *  returns kraus_t floor
 */
-kraus_t kraus_floor(struct tm *date)
-{
-    unsigned short perl_seed[2] = {0};
-    double rand_number = 0;
-    kraus_t floor;
+kraus_t kraus_floor(struct tm *date) {
+  unsigned short perl_seed[2] = {0};
+  double rand_number = 0;
+  kraus_t floor;
 
-    // The S.U.P.E.R. secret Algorithm (Part 1)
-    perl_seed[0] = (date->tm_mday * date->tm_mday + date->tm_mon + 1);
+  // The S.U.P.E.R. secret Algorithm (Part 1)
+  perl_seed[0] = (date->tm_mday * date->tm_mday + date->tm_mon + 1);
 
-    // Seed like perl 5.6 does
-    unsigned short seed[3] = {SEEDMAGIC, perl_seed[0], perl_seed[1]};
-    seed48(&seed[0]);
-    rand_number = drand48();
+  // Seed like perl 5.6 does
+  unsigned short seed[3] = {SEEDMAGIC, perl_seed[0], perl_seed[1]};
+  seed48(&seed[0]);
+  rand_number = drand48();
 
-    // The S.U.P.E.R. secret Algorithm (Part 2)
-    floor = (rand_number * MAX_FLOOR) + MIN_FLOOR;
+  // The S.U.P.E.R. secret Algorithm (Part 2)
+  floor = (rand_number * MAX_FLOOR) + MIN_FLOOR;
 
-    return floor;
+  return floor;
 }
