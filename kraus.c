@@ -51,12 +51,7 @@ int main(int argc, char *argv[])
         abort ();
     }
 
-    if (vcount) {
-      count = atoi(vcount);
-    } else {
-      count = 1;
-    }
-
+    count = vcount ? atoi(vcount) : 1;
 
     // Calculate start date
     time(&start_time);
