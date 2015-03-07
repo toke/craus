@@ -6,7 +6,7 @@
  * this stuff is worth it, you can bring me a coffee in return.
  * ----------------------------------------------------------------------------
  */
- 
+
 #ifndef _KRAUS_H_
 #define _KRAUS_H_
 
@@ -21,5 +21,6 @@
 typedef unsigned int kraus_t;
 
 unsigned int kraus_floor(struct tm *date);
+void print_floor(time_t *start_date, int count);
 
 #endif
