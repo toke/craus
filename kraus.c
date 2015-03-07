@@ -19,10 +19,9 @@ int main(int argc, char *argv[])
     output = &print_floor;
 
     char *vcount = NULL;
-    char *voutput = NULL;
     int c;
 
-    while ((c = getopt (argc, argv, "vpjo:c:d:")) != -1)
+    while ((c = getopt (argc, argv, "vpjc:")) != -1)
     switch (c)
     {
       case 'p':
@@ -37,11 +36,8 @@ int main(int argc, char *argv[])
       case 'c':
         vcount = optarg;
         break;
-      case 'o':
-        voutput = optarg;
-        break;
       case '?':
-        if (optopt == 'o' || optopt == 'c' || optopt == 'd') {
+        if (optopt == 'c') {
           fprintf (stderr, "Option -%c requires an argument.\n", optopt);
         } else if (isprint (optopt)) {
           fprintf (stderr, "Unknown option `-%c'.\n", optopt);
