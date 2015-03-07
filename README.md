@@ -13,7 +13,7 @@ has been established.
 
 ## Usage
 
-`kraus -pjvc`
+`kraus -[p|j|v]c #`
 
 List K.R.A.U.S. floor for current date. Optional parameters `-p`, `-j` and `-v`
 are switching output to `plaintext`, `json` and `vcard`. The option `-c` followed
