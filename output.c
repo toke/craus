@@ -12,39 +12,45 @@
 /*
 *  Plain text output
 */
-void text_out(time_t *start_date, int count) {
+void text_out(calendar_t *calendar) {
   int i;
   struct tm *kd;
   kraus_t floor;
 
-  for (i = 0; i < count; i++) {
-    kd = localtime(start_date);
+  for (i = 0; i < calendar->count; i++) {
+    kd = localtime(&calendar->start_date);
     kd->tm_mday += i;
     mktime(kd);
     floor = kraus_floor(kd);
-    (void)printf("Am %02i.%02i treffen wir uns in Stockwerk %i\n", kd->tm_mday,
+    if (calendar->flags.weekday && (kd->tm_wday == SA || kd->tm_wday == SU)) {
+      printf("Wochenende\n");
+    } else {
+      (void)printf("Am %02i.%02i treffen wir uns in Stockwerk %i\n", kd->tm_mday,
                  kd->tm_mon + 1, floor);
+    }
   }
 }
 
 /*
 *  JSON output
 */
-void json_out(time_t *start_date, int count) {
+void json_out(calendar_t *calendar) {
   int i;
   struct tm *kd;
   kraus_t floor;
 
   printf("{\"kraus\": [\n");
-  for (i = 0; i < count; i++) {
-    kd = localtime(start_date);
+  for (i = 0; i < calendar->count; i++) {
+    kd = localtime(&calendar->start_date);
     kd->tm_mday += i;
     mktime(kd);
     floor = kraus_floor(kd);
-    if (i > 0)
-      printf(",\n");
-    (void)printf("\t{\"date\": \"%02i.%02i.%i\", \"level\": %i}", kd->tm_mday,
-                 kd->tm_mon + 1, kd->tm_year + 1900, floor);
+    if (!calendar->flags.weekday || (kd->tm_wday > 0 && kd->tm_wday < 6)) {
+      if (i > 0)
+        printf(",\n");
+      (void)printf("\t{\"date\": \"%02i.%02i.%i\", \"level\": %i}", kd->tm_mday,
+                   kd->tm_mon + 1, kd->tm_year + 1900, floor);
+    }
   }
   printf("\n]}\n");
 }
@@ -52,18 +58,20 @@ void json_out(time_t *start_date, int count) {
 /*
 *  VCARD output
 */
-void vcard_out(time_t *start_date, int count) {
+void vcard_out(calendar_t *calendar) {
   int i;
   struct tm *kd;
   kraus_t floor;
 
   printf(VCARD_HEAD);
-  for (i = 0; i < count; i++) {
-    kd = localtime(start_date);
+  for (i = 0; i < calendar->count; i++) {
+    kd = localtime(&calendar->start_date);
     kd->tm_mday += i;
     mktime(kd);
     floor = kraus_floor(kd);
-    printf(VCARD_BODY, VCARD_DATA(kd, floor));
+    if (!calendar->flags.weekday || (kd->tm_wday > 0 && kd->tm_wday < 6)) {
+      printf(VCARD_BODY, VCARD_DATA(kd, floor));
+    }
   }
   printf(VCARD_FOOT);
 }

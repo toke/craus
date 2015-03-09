@@ -12,6 +12,26 @@
 
 #include "kraus.h"
 
+typedef struct {
+    unsigned weekday: 1;
+    unsigned reserved: 7;
+} cal_flags_t;
+
+typedef struct {
+  time_t        start_date;
+  unsigned int  count;
+  cal_flags_t   flags;
+} calendar_t;
+
+void text_out(calendar_t *calendar);
+void json_out(calendar_t *calendar);
+void vcard_out(calendar_t *calendar);
+
+#define SKIP_WEEKENDS 0b1
+
+#define SU 0
+#define SA 6
+
 #define VCARD_HEAD                                                             \
   "BEGIN:VCALENDAR\nVERSION:2.0\nMETHOD:PUBLISH\n\
 PRODID:-//hack//toke//kraus v1.0//EN\n"
@@ -37,8 +57,6 @@ END:VEVENT\n"
       date->tm_mday, date->tm_year + 1900, date->tm_mon + 1, date->tm_mday,    \
       floor, floor
 
-void text_out(time_t *start_date, int count);
-void json_out(time_t *start_date, int count);
-void vcard_out(time_t *start_date, int count);
+
 
 #endif

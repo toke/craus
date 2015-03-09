@@ -11,15 +11,15 @@
 
 int main(int argc, char *argv[]) {
   time_t start_time;
-  int deltad = 0;         // delta in days from current day
-  unsigned int count = 1; // number of results
+  calendar_t cal = {0};
+  const int deltad = 0;         // delta in days from current day
   char *vcount = NULL;
   int c;
 
-  void (*output)(time_t *, int);
+  void (*output)(calendar_t *);
   output = DEFAULT_FORMAT; // default output
 
-  while ((c = getopt(argc, argv, "vpjc:")) != -1)
+  while ((c = getopt(argc, argv, "vpjwc:")) != -1)
     switch (c) {
     case 'p':
       output = &text_out;
@@ -29,6 +29,9 @@ int main(int argc, char *argv[]) {
       break;
     case 'v':
       output = &vcard_out;
+      break;
+    case 'w': // Skip Weekends
+      cal.flags.weekday = SKIP_WEEKENDS;
       break;
     case 'c':
       vcount = optarg;
@@ -46,13 +49,13 @@ int main(int argc, char *argv[]) {
       abort();
     }
 
-  count = vcount ? atoi(vcount) : 1;
-
   // Calculate start date
   time(&start_time);
   start_time += deltad;
 
-  output(&start_time, count);
+  cal.start_date = start_time;
+  cal.count = vcount ? atoi(vcount) : 1;
+  output(&cal);
 
   return 0;
 }
