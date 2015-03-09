@@ -18,7 +18,7 @@ has been established.
 List K.R.A.U.S. floor for current date. Optional parameters `-p`, `-j` and `-v`
 are switching output to `plaintext`, `json` and `vcard`. The option `-c` followed
 by a number instructs the program to output n concurrent days in specified format.
-The option `w` supress output of weekends.
+The option `-w` supress output of weekends.
 
 If no arguments are given the floor of the current day is printed on stdout.
 
