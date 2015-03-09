@@ -10,10 +10,7 @@
 #include "kraus.h"
 
 int main(int argc, char *argv[]) {
-  time_t start_time;
   calendar_t cal = {0};
-  const int deltad = 0;         // delta in days from current day
-  char *vcount = NULL;
   int c;
 
   void (*output)(calendar_t *);
@@ -34,7 +31,11 @@ int main(int argc, char *argv[]) {
       cal.flags.weekday = SKIP_WEEKENDS;
       break;
     case 'c':
-      vcount = optarg;
+      if (optarg && atoi(optarg) > 0) {
+        cal.count = optarg ? atoi(optarg) : 1;
+      } else {
+        cal.count = 1;
+      }
       break;
     case '?':
       if (optopt == 'c') {
@@ -47,14 +48,11 @@ int main(int argc, char *argv[]) {
       return 1;
     default:
       abort();
-    }
+  }
 
-  // Calculate start date
-  time(&start_time);
-  start_time += deltad;
+  time(&cal.start_date);
 
-  cal.start_date = start_time;
-  cal.count = vcount ? atoi(vcount) : 1;
+  cal.count = cal.count ? cal.count : 1;
   output(&cal);
 
   return 0;
