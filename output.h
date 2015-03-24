@@ -27,7 +27,6 @@ void text_out(calendar_t *calendar);
 void json_out(calendar_t *calendar);
 void vcard_out(calendar_t *calendar);
 
-#define SKIP_WEEKENDS 0b1
 
 #define SU 0
 #define SA 6

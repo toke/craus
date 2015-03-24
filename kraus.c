@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
       output = &vcard_out;
       break;
     case 'w': // Skip Weekends
-      cal.flags.weekday = SKIP_WEEKENDS;
+      cal.flags.weekday = 1;
       break;
     case 'c':
       if (optarg && atoi(optarg) > 0) {
