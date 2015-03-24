@@ -26,6 +26,6 @@
 
 typedef unsigned int kraus_t;
 
-unsigned int kraus_floor(struct tm *date);
+kraus_t kraus_floor(struct tm *date);
 
 #endif
