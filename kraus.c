@@ -16,8 +16,11 @@ int main(int argc, char *argv[]) {
   void (*output)(calendar_t *);
   output = DEFAULT_FORMAT; // default output
 
-  while ((c = getopt(argc, argv, "vpsjwc:")) != -1)
+  while ((c = getopt(argc, argv, "vCpsjwc:")) != -1)
     switch (c) {
+    case 'C':
+      output = &csv_out;
+      break;
     case 'p':
       output = &text_out;
       break;

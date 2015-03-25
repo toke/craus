@@ -23,6 +23,7 @@ typedef struct {
   cal_flags_t   flags;
 } calendar_t;
 
+void csv_out(calendar_t *calendar);
 void text_out(calendar_t *calendar);
 void simple_out(calendar_t *calendar);
 void json_out(calendar_t *calendar);

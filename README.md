@@ -15,8 +15,8 @@ has been established.
 
 `kraus -[p|j|v|s]wc #`
 
-List K.R.A.U.S. floor for current date. Optional parameters `-p`, `-j` and `-v`
-are switching output to `plaintext`, `simple`, `json` and `vcard`. The option `-c` followed
+List K.R.A.U.S. floor for current date. Optional parameters `-C`, `-p`, `-j` and `-v`
+are switching output to `CSV`, `plaintext`, `simple`, `json` and `vcard`. The option `-c` followed
 by a number instructs the program to output n concurrent days in specified format.
 The option `-w` suppress output of weekends.
 
