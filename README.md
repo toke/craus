@@ -6,19 +6,19 @@ This is a portable C port of the famous K.R.A.U.S. (floor of the day) applicatio
 The acronym K.R.A.U.S. stands for the German phrase "Kaffee-Runde auf unterschiedlichen Stockwerken".
 It's origin lies far in the beginning of civilisation and was once called *Tempus clausum*.
 
-Since being independent of a single implementation is cruical for live threatening services this fork
+Since being independent of a single implementation is crucial for live threatening services this fork
 has been established.
 
 [![Build Status](https://travis-ci.org/toke/craus.svg?branch=master)](https://travis-ci.org/toke/craus)
 
 ## Usage
 
-`kraus -[p|j|v]wc #`
+`kraus -[p|j|v|s]wc #`
 
 List K.R.A.U.S. floor for current date. Optional parameters `-p`, `-j` and `-v`
-are switching output to `plaintext`, `json` and `vcard`. The option `-c` followed
+are switching output to `plaintext`, `simple`, `json` and `vcard`. The option `-c` followed
 by a number instructs the program to output n concurrent days in specified format.
-The option `-w` supress output of weekends.
+The option `-w` suppress output of weekends.
 
 If no arguments are given the floor of the current day is printed on stdout.
 
@@ -32,7 +32,7 @@ If no arguments are given the floor of the current day is printed on stdout.
 ## Implementation
 
 Based on reverse engeneering the perl 5.6 srand() and rand() random number generators which are
-basically calling the (System V/POSIX) random number generator seed48() and drand48() Pseudorandom
+basically calling the (System V/POSIX) random number generator seed48() and drand48() pseudo random
 Functions (at least in our use case).
 
 This is how perl initializes the seed value (in our case):

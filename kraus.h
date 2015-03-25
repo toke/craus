@@ -24,7 +24,7 @@
 #define SEEDMAGIC 0x330e
 #define DEFAULT_FORMAT &text_out
 
-typedef unsigned int kraus_t;
+typedef unsigned char kraus_t;
 
 kraus_t kraus_floor(struct tm *date);
 

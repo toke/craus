@@ -24,6 +24,7 @@ typedef struct {
 } calendar_t;
 
 void text_out(calendar_t *calendar);
+void simple_out(calendar_t *calendar);
 void json_out(calendar_t *calendar);
 void vcard_out(calendar_t *calendar);
 
