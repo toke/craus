@@ -78,7 +78,7 @@ or:
 
 
 
-`gcc -o kraus kraus.c`
+`gcc -o kraus output.c kraus.c`
 
 
 ## Bugs
