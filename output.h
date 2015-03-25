@@ -58,6 +58,11 @@ END:VEVENT\n"
       date->tm_mday, date->tm_year + 1900, date->tm_mon + 1, date->tm_mday,    \
       floor, floor
 
+#define JSON_HEAD "{\"kraus\": [\n"
+#define JSON_BODY "\t{\"date\": \"%02i.%02i.%i\", \"level\": %i}"
+#define JSON_FOOT "\n]}\n"
+#define JSON_DELIMIT ",\n"
+#define JSON_DATA kd->tm_mday, kd->tm_mon + 1, kd->tm_year + 1900, floor
 
 
 #endif

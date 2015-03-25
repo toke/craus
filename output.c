@@ -84,7 +84,7 @@ void json_out(calendar_t *calendar) {
   struct tm *kd;
   kraus_t floor;
 
-  printf("{\"kraus\": [\n");
+  printf(JSON_HEAD);
   for (i = 0; i < calendar->count; i++) {
     kd = localtime(&calendar->start_date);
     kd->tm_mday += i;
@@ -92,12 +92,11 @@ void json_out(calendar_t *calendar) {
     floor = kraus_floor(kd);
     if (!calendar->flags.weekday || (kd->tm_wday > 0 && kd->tm_wday < 6)) {
       if (i > 0)
-        printf(",\n");
-      (void)printf("\t{\"date\": \"%02i.%02i.%i\", \"level\": %i}", kd->tm_mday,
-                   kd->tm_mon + 1, kd->tm_year + 1900, floor);
+        printf(JSON_DELIMIT);
+      (void)printf(JSON_BODY, JSON_DATA);
     }
   }
-  printf("\n]}\n");
+  printf(JSON_FOOT);
 }
 
 /*
