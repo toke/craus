@@ -104,3 +104,4 @@ The compiled version is larger. But *sssshhh* this has to kept a secret.
 * [drand48](http://pubs.opengroup.org/onlinepubs/007908799/xsh/drand48.html)
 * [perl util.c](http://perl5.git.perl.org/perl.git/blob/HEAD:/util.c#l5563)
 * [perl pp.c](http://perl5.git.perl.org/perl.git/blob/HEAD:/pp.c#l2700)
+* [man calendar](http://linux.die.net/man/1/calendar)
