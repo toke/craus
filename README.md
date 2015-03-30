@@ -66,7 +66,7 @@ sudo make install
 
 or (create a debian package):
 
-```debuild binary```
+```debuild -i -us -uc -b```
 
 or 
 

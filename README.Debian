@@ -1,6 +1,6 @@
 ## Building from source
 
-```debuild binary```
+```debuild -i -us -uc -b```
 
 
 
