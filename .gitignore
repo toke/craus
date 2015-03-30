@@ -31,5 +31,8 @@
 build/*
 obj-*
 debian/files
+debian/craus/
+debian/craus.debhelper.log
+debian/craus.substvars
 
 *.ics
