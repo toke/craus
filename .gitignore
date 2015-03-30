@@ -29,5 +29,8 @@
 *.hex
 
 build/*
+obj-*
+debian/files
+debian/craus*
 
 *.ics
