@@ -1,4 +1,4 @@
-craus (1.2.1) trusty; urgency=medium
+craus (1.2.1-1) trusty; urgency=medium
 
   * Added multiple format output
   * CVS, ICS, Text, Simple, JSON
@@ -6,7 +6,7 @@ craus (1.2.1) trusty; urgency=medium
 
  -- Thomas Kerpe <toke@toke.de>  Mon, 30 Mar 2015 14:05:44 +0200
 
-craus (1.0-0) trusty; urgency=medium
+craus (1.0-1) trusty; urgency=medium
 
   * Initial release.
 
