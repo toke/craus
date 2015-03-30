@@ -4,7 +4,7 @@ craus (1.2.1) trusty; urgency=medium
   * CVS, ICS, Text, Simple, JSON
   * Allow to ignore Weekends 
 
- -- Thomas Kerpe <toke@bluesky>  Mon, 30 Mar 2015 14:05:44 +0200
+ -- Thomas Kerpe <toke@toke.de>  Mon, 30 Mar 2015 14:05:44 +0200
 
 craus (1.0-0) trusty; urgency=medium
 
