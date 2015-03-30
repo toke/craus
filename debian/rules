@@ -6,5 +6,5 @@ export DH_VERBOSE=1
 CMAKE_OPTS := \
 	-DBUILDNAME=$(DEB_BUILD_NAME)
 override_dh_installman:
-	cat ./kraus.1 > debian/kraus.1
-	dh_installman kraus.1
+	#cat ./docs/kraus.1 > debian/kraus.1
+	dh_installman docs/kraus.1
