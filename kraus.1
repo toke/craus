@@ -1,0 +1,37 @@
+.\" Manpage for kraus.
+.\" Contact toke@toke.de to correct errors or typos.
+.TH man 1 "30 March 2015" "1.2.1" "kraus man page"
+.SH NAME
+kraus \- "Kaffee-Runde auf unterschiedlichen Stockwerken"
+.SH SYNOPSIS
+.B kraus [-C|-p|-j|-v|-s] [-w] [-c
+.I count
+.B ]
+.SH DESCRIPTION
+kraus is a small application that prints out the "Floor of the day" on
+which my coworkers are meeting for coffee.
+.SH OPTIONS
+.IP -C
+Output "CSV"
+.IP -p
+Output "plaintext"
+.IP -s
+Output "simple" just the floor
+.IP -j
+Output "JSON"
+.IP -v
+Output "vCARD"
+.IP -w
+Supress output of weekends
+.IP "-c count"
+Output
+.I count
+concurrent days (obeys the -w flag)
+
+.P If no arguments are given the floor of the current day is printed on stdout.
+.SH SEE ALSO
+kraus(1)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Thomas Kerpe (toke@toke.de)
