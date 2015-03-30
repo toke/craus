@@ -8,7 +8,8 @@ Build-Depends: debhelper (>= 9)
 Package: craus
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Provides: kraus
 Description: K.R.A.U.S. in C
  K.R.A.U.S. stands for the German phrase "Kaffee-Runde auf unterschiedlichen
  Stockwerken" - "Floor of the day" on which my coworkers are meeting for
- coffee 
+ coffee

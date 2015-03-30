@@ -1,4 +1,10 @@
 #!/usr/bin/make -f
+export DH_OPTIONS
+export DH_VERBOSE=1
 %:
 	dh $@
-
+CMAKE_OPTS := \
+	-DBUILDNAME=$(DEB_BUILD_NAME)
+override_dh_installman:
+	cat ./kraus.1 > debian/kraus.1
+	dh_installman kraus.1
