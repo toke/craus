@@ -66,6 +66,11 @@ sudo make install
 
 or (create a debian package):
 
+```debuild binary```
+
+or 
+
+
 ```
 mkdir build
 cd build
