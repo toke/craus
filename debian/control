@@ -12,4 +12,5 @@ Provides: kraus
 Description: K.R.A.U.S. in C
  K.R.A.U.S. stands for the German phrase "Kaffee-Runde auf unterschiedlichen
  Stockwerken" - "Floor of the day" on which my coworkers are meeting for
- coffee
+ coffee.
+ This package contains the C port of the original Project.

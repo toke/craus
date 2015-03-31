@@ -1,12 +1,18 @@
-craus (1.2.1-1) trusty; urgency=medium
+craus (1.2.1-2) stable; urgency=low
+
+  * Documentation changes
+
+ -- Thomas Kerpe <toke@toke.de>  Tue, 31 Mar 2015 13:30:54 +0200
+
+craus (1.2.1-1) stable; urgency=medium
 
   * Added multiple format output
   * CVS, ICS, Text, Simple, JSON
-  * Allow to ignore Weekends 
+  * Allow to ignore Weekends
 
  -- Thomas Kerpe <toke@toke.de>  Mon, 30 Mar 2015 14:05:44 +0200
 
-craus (1.0-1) trusty; urgency=medium
+craus (1.0-1) stable; urgency=medium
 
   * Initial release.
 
