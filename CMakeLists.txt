@@ -9,8 +9,12 @@ configure_file (
 )
 
 include_directories("${PROJECT_BINARY_DIR}")
+include_directories("${PROJECT_SOURCE_DIR}/output")
+add_subdirectory(output)
 
-add_executable (kraus  kraus.c output.c)
+add_executable (kraus kraus.c)
+target_link_libraries(kraus Output)
+
 set(MANPAGES docs/kraus.1)
 INSTALL( FILES ${MANPAGES} DESTINATION man)
 INSTALL( TARGETS kraus DESTINATION bin)

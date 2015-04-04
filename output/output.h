@@ -10,7 +10,7 @@
 #ifndef _OUTPUT_H_
 #define _OUTPUT_H_
 
-#include "kraus.h"
+#include "../kraus.h"
 
 typedef struct {
     unsigned weekday: 1;
