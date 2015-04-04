@@ -10,13 +10,11 @@
 #ifndef _KRAUS_H_
 #define _KRAUS_H_
 
-#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
 #include <getopt.h>
 
-#include "craus.h"
 #include "output/output.h"
 
 #include "version.h"
