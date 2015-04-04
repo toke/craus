@@ -68,7 +68,7 @@ or (create a debian package):
 
 ```debuild -i -us -uc -b```
 
-or 
+or
 
 
 ```
@@ -78,13 +78,6 @@ cmake ..
 make
 sudo checkinstall -D --pkgname=craus make install
 ```
-
-or:
-
-
-
-`gcc -o kraus output.c kraus.c`
-
 
 ## Bugs
 
