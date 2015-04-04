@@ -1,0 +1,3 @@
+
+#define craus_VERSION_MAJOR @craus_VERSION_MAJOR@
+#define craus_VERSION_MINOR @craus_VERSION_MINOR@

@@ -16,7 +16,7 @@ int main(int argc, char *argv[]) {
   void (*output)(calendar_t *);
   output = DEFAULT_FORMAT; // default output
 
-  while ((c = getopt(argc, argv, "vCpsjwc:")) != -1)
+  while ((c = getopt(argc, argv, "hvCpsjwc:")) != -1)
     switch (c) {
     case 'C':
       output = &csv_out;
@@ -43,7 +43,13 @@ int main(int argc, char *argv[]) {
         cal.count = 1;
       }
       break;
+    case 'h':
+      usage();
+      return 0;
+      break;
     case '?':
+      printf("craus %i.%i\n", craus_VERSION_MAJOR, craus_VERSION_MINOR);
+
       if (optopt == 'c') {
         fprintf(stderr, "Option -%c requires an argument.\n", optopt);
       } else if (isprint(optopt)) {
@@ -85,4 +91,10 @@ kraus_t kraus_floor(struct tm *date) {
   floor = (rand_number * MAX_FLOOR) + MIN_FLOOR;
 
   return floor;
+}
+
+
+void usage(void) {
+  printf("craus Version %i.%i\n", craus_VERSION_MAJOR, craus_VERSION_MINOR);
+  printf("kraus [-C|-p|-j|-v|-s] [-w] [-c count]\n");
 }

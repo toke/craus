@@ -19,6 +19,8 @@
 
 #include "output.h"
 
+#include "version.h"
+
 #define MIN_FLOOR 1
 #define MAX_FLOOR 8
 #define SEEDMAGIC 0x330e
@@ -27,5 +29,5 @@
 typedef unsigned char kraus_t;
 
 kraus_t kraus_floor(struct tm *date);
-
+void usage(void);
 #endif
