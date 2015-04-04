@@ -7,23 +7,18 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _KRAUS_H_
-#define _KRAUS_H_
+#ifndef _CRAUS_H_
+#define _CRAUS_H_
 
+#include <time.h>
 #include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <getopt.h>
 
-#include "craus.h"
-#include "output/output.h"
+#define MIN_FLOOR 1
+#define MAX_FLOOR 8
+#define SEEDMAGIC 0x330e
 
-#include "version.h"
+typedef unsigned char kraus_t;
 
+kraus_t kraus_floor(struct tm *date);
 
-#define DEFAULT_FORMAT &text_out
-
-
-void usage(void);
 #endif
