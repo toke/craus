@@ -11,6 +11,7 @@
 #define _OUTPUT_H_
 
 #include "../kraus.h"
+#include "../craus.h"
 
 typedef struct {
     unsigned weekday: 1;
