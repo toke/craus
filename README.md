@@ -13,10 +13,10 @@ has been established.
 
 ## Usage
 
-`kraus [-C|-p|-j|-v|-s] [-w] [-c count]`
+`kraus [-h] [-w] [-o output] [-s strategy] [-c count] `
 
-List K.R.A.U.S. floor for current date. Optional parameters `-C`, `-p`, `-s`, `-j` and `-v`
-are switching output to `CSV`, `plaintext`, `simple`, `json` and `vcard`. The option `-c` followed
+List K.R.A.U.S. floor for current date. Valid values for the -o parameter are
+`csv`, `text`, `simple`, `json` and `vcard`. The option `-c` followed
 by a number instructs the program to output n concurrent days in specified format.
 The option `-w` suppress output of weekends.
 
@@ -26,7 +26,7 @@ If no arguments are given the floor of the current day is printed on stdout.
 
 `kraus -c 10` will print the floor of today and the next 9 days.
 
-`kraus -v -c 10` same as above but in VCARD format.
+`kraus -o vcard -c 10` same as above but in VCARD format.
 
 
 ## Implementation

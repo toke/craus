@@ -1,25 +1,29 @@
 .\" Manpage for kraus.
 .\" Contact toke@toke.de to correct errors or typos.
-.TH man 1 "4 April 2015" "1.3.1" "kraus man page"
+.TH man 1 "5 April 2015" "1.4.1" "kraus man page"
 .SH NAME
 kraus \- "Kaffee-Runde auf unterschiedlichen Stockwerken"
 .SH SYNOPSIS
-.B kraus [-C|-p|-j|-v|-s] [-w] [-c
+.B kraus [-h] [-w][-s
+.I Strategy
+.B] [-o
+.I Output
+.B ][-c
 .I count
 .B ]
 .SH DESCRIPTION
 kraus is a small application that prints out the "Floor of the day" on
 which my coworkers are meeting for coffee.
 .SH OPTIONS
-.IP -C
+.IP -o csv
 Output "CSV"
-.IP -p
+.IP -o text
 Output "plaintext"
-.IP -s
+.IP -o simple
 Output "simple" just the floor
-.IP -j
+.IP -o json
 Output "JSON"
-.IP -v
+.IP -o vcard
 Output "vCARD"
 .IP -w
 Supress output of weekends

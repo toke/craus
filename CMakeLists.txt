@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.8.7)
 project (craus)
 set (craus_VERSION_MAJOR 1)
-set (craus_VERSION_MINOR 3)
+set (craus_VERSION_MINOR 4)
 
 configure_file (
   "${PROJECT_SOURCE_DIR}/version.h.in"
