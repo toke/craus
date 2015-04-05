@@ -106,13 +106,9 @@ int main(int argc, char *argv[]) {
 }
 
 void usage(void) {
-  printf("craus Version %i.%i\n", craus_VERSION_MAJOR, craus_VERSION_MINOR);
-  printf("kraus [-o=OUTPUT MODULE] [-s=STRATEGY MODULE] [-w] [-c count]\n\n");
-
+  
   module_registry_t strategy_registry = {
     .name = "Strategy",
-    .max_id = 0,
-    .default_id = 0
   };
   module_registry_t output_registry = {
     .name = "Output",
@@ -120,6 +116,10 @@ void usage(void) {
 
   register_output(&output_registry);
   register_strategy(&strategy_registry);
+
+  printf("craus Version %i.%i\n", craus_VERSION_MAJOR, craus_VERSION_MINOR);
+  printf("kraus [-o=OUTPUT MODULE] [-s=STRATEGY MODULE] [-w] [-c count]\n\n");
+
   printf("\n");
   usage_modules(&output_registry);
   printf("\n");

@@ -23,10 +23,11 @@ int register_module(module_registry_t * registry, module_t * output) {
 }
 
 void usage_modules(module_registry_t * registry){
-  printf("%s modules:\n", registry->name);
   module_t * module;
   size_t i;
-  
+
+  printf("%s modules:\n", registry->name);
+
   for (i=0; i < registry->max_id; i++) {
     module = &registry->modules[i];
     printf("%s:\t%s", module->ident, module->name);
