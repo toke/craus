@@ -3,10 +3,6 @@ project (craus)
 set (craus_VERSION_MAJOR 1)
 set (craus_VERSION_MINOR 4)
 
-configure_file (
-  "${PROJECT_SOURCE_DIR}/version.h.in"
-  "${PROJECT_BINARY_DIR}/version.h"
-)
 # configure a header file to pass some of the CMake settings
 # to the source code
 configure_file (
