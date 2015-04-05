@@ -96,6 +96,8 @@ The compiled version is larger. But *sssshhh* this has to kept a secret.
 
 **Pro Tip:** The command `kraus -c 365 | awk -- '{ print $2 "\tKRAUS " $8 }' > calendar` will generate a file that can be fed to the linux `calendar` program.
 
+This is a Toy-Project and subject of several overengeneerings and experiments.
+
 ## References
 
 * [Original K.R.A.U.S.](https://github.com/jautz/kraus)
