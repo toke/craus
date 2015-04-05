@@ -10,10 +10,11 @@
 #ifndef _OUTPUT_H_
 #define _OUTPUT_H_
 
+#include <stdio.h>
+
 #include "config.h"
 #include "../types.h"
 #include "../module.h"
-#include "output_module.h"
 
 #include "csv.h"
 #include "json.h"
@@ -25,15 +26,13 @@
 #include "calendar.h"
 #endif
 
-#define MAX_OUTPUT_MODULES 10
+#define SU 0
+#define SA 6
 
 
-
+void (*output)(calendar_t *, void *);
 
 void register_output(module_registry_t * registry);
 void usage_output(module_registry_t * registry);
-
-
-
 
 #endif

@@ -10,11 +10,7 @@
 #ifndef _CRAUS_H_
 #define _CRAUS_H_
 
-#include <time.h>
-#include <stdlib.h>
-
 #include "strategy.h"
-
 
 #define MIN_FLOOR 1
 #define MAX_FLOOR 8

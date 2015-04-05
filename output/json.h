@@ -10,7 +10,7 @@
 #ifndef _JSON_MODULE_H_
 #define _JSON_MODULE_H_
 
-#include "output_module.h"
+#include "output.h"
 
 #define JSON_HEAD "{\"kraus\": [\n"
 #define JSON_BODY "\t{\"date\": \"%02i.%02i.%i\", \"level\": %i}"

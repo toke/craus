@@ -10,7 +10,7 @@
 #ifndef _SIMPLE_MODULE_H_
 #define _SIMPLE_MODULE_H_
 
-#include "output_module.h"
+#include "output.h"
 
 void simple_out(calendar_t *calendar, KRAUS_PTR strategy);
 

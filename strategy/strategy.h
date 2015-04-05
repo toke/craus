@@ -12,9 +12,11 @@
 #define _STRATEGY_H_
 
 #include <time.h>
+#include <stdlib.h>
 
 #include "../types.h"
 #include "../module.h"
+
 #include "craus.h"
 #include "null.h"
 

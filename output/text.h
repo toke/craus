@@ -10,7 +10,7 @@
 #ifndef _TEXT_MODULE_H_
 #define _TEXT_MODULE_H_
 
-#include "output_module.h"
+#include "output.h"
 
 void text_out(calendar_t *calendar, KRAUS_PTR strategy);
 
