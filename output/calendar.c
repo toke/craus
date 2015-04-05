@@ -22,10 +22,7 @@ void calendar_out(calendar_t *calendar, KRAUS_PTR strategy) {
     kd->tm_mday += i;
     mktime(kd);
     floor = strategy(kd);
-    if (calendar->flags.weekday && (kd->tm_wday == SA || kd->tm_wday == SU)) {
-      printf("%02i.%02i\t\n", kd->tm_mday,
-                 kd->tm_mon + 1);
-    } else {
+    if (!calendar->flags.weekday || (kd->tm_wday > 0 && kd->tm_wday < 6)) {
       (void) printf("%02i.%02i\tKRAUS %i\n", kd->tm_mday,
                  kd->tm_mon + 1, floor);
     }
