@@ -7,12 +7,13 @@
  * ----------------------------------------------------------------------------
  */
 
-#include "output.h"
+#include "json.h"
+
 
 /*
 *  JSON output
 */
-void json_out(calendar_t *calendar) {
+void json_out(calendar_t *calendar, KRAUS_PTR strategy) {
   int i;
   struct tm *kd;
   kraus_t floor;
@@ -22,7 +23,7 @@ void json_out(calendar_t *calendar) {
     kd = localtime(&calendar->start_date);
     kd->tm_mday += i;
     mktime(kd);
-    floor = kraus_floor(kd);
+    floor = strategy(kd);
     if (!calendar->flags.weekday || (kd->tm_wday > 0 && kd->tm_wday < 6)) {
       if (i > 0)
         printf(JSON_DELIMIT);

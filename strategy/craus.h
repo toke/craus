@@ -7,23 +7,20 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _KRAUS_H_
-#define _KRAUS_H_
+#ifndef _CRAUS_H_
+#define _CRAUS_H_
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <getopt.h>
+#include <time.h>
+#include <stdlib.h>
 
-#include "types.h"
-
-#include "module.h"
-#include "output/output.h"
-#include "strategy/strategy.h"
-
-#include "version.h"
+#include "strategy.h"
 
 
+#define MIN_FLOOR 1
+#define MAX_FLOOR 8
+#define SEEDMAGIC 0x330e
 
-void usage(void);
+
+kraus_t craus_floor(struct tm *date);
+
 #endif

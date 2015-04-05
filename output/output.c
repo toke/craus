@@ -8,3 +8,51 @@
  */
 
 #include "output.h"
+
+
+
+void register_output(module_registry_t * registry){
+  module_t text ={
+    .name = "Plain Text Output",
+    .ident = "text",
+    .func = &text_out
+  };
+
+  module_t simple ={
+    .name = "Simple Text Output",
+    .ident = "simple",
+    .func = &simple_out
+  };
+
+  module_t csv ={
+    .name = "CSV Output",
+    .ident = "csv",
+    .func = &csv_out
+  };
+
+  module_t vcard ={
+    .name = "vCard Output",
+    .ident = "vcard",
+    .func = &vcard_out
+  };
+
+  module_t json_module ={
+    .name = "JSON Output",
+    .ident = "json",
+    .func = &json_out
+  };
+
+  register_module(registry, &text);
+  register_module(registry, &simple);
+  register_module(registry, &json_module);
+  register_module(registry, &csv);
+  register_module(registry, &vcard);
+
+  //printf("Modules registered: %s, %i\n", registry->name, registry->max_id);
+}
+
+void usage_output(module_registry_t * registry){
+  printf("Use output modules with -o=MODULE.\n");
+  printf("Like \"-o=%s\"\n", get_default_module(registry)->ident);
+  usage_modules(registry);
+}

@@ -12,7 +12,7 @@
 /*
 *  CSV output
 */
-void csv_out(calendar_t *calendar) {
+void csv_out(calendar_t *calendar, KRAUS_PTR strategy) {
   int i;
   struct tm *kd;
   kraus_t floor;
@@ -21,7 +21,7 @@ void csv_out(calendar_t *calendar) {
     kd = localtime(&calendar->start_date);
     kd->tm_mday += i;
     mktime(kd);
-    floor = kraus_floor(kd);
+    floor = strategy(kd);
     if (calendar->flags.weekday && (kd->tm_wday == SA || kd->tm_wday == SU)) {
       printf("%02i.%02i.%i;\n", kd->tm_mday,
                  kd->tm_mon + 1, kd->tm_year + 1900);

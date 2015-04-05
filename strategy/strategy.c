@@ -7,23 +7,23 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _KRAUS_H_
-#define _KRAUS_H_
-
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <getopt.h>
-
-#include "types.h"
-
-#include "module.h"
-#include "output/output.h"
-#include "strategy/strategy.h"
-
-#include "version.h"
+#include "strategy.h"
 
 
+void register_strategy(module_registry_t * registry){
+  module_t craus_strat ={
+    .name = "K.R.A.U.S. in C",
+    .ident = "craus",
+    .func = &craus_floor
+  };
 
-void usage(void);
-#endif
+  module_t null_strat ={
+    .name = "Null output",
+    .ident = "null",
+    .func = &null_floor
+  };
+
+  register_module(registry, &craus_strat);
+  register_module(registry, &null_strat);
+
+}

@@ -7,23 +7,29 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _KRAUS_H_
-#define _KRAUS_H_
-
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <getopt.h>
-
-#include "types.h"
-
-#include "module.h"
-#include "output/output.h"
-#include "strategy/strategy.h"
-
-#include "version.h"
+#ifndef _KRAUS_TYPES_H_
+#define _KRAUS_TYPES_H_
 
 
+#include <time.h>
+#include <stdlib.h>
 
-void usage(void);
+
+typedef unsigned char kraus_t;
+
+typedef int (*KRAUS_PTR)(struct tm *);
+
+
+typedef struct {
+    unsigned weekday: 1;
+    unsigned reserved: 7;
+} cal_flags_t;
+
+typedef struct {
+  time_t        start_date;
+  unsigned int  count;
+  cal_flags_t   flags;
+} calendar_t;
+
+
 #endif

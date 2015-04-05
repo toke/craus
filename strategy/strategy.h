@@ -7,23 +7,20 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _KRAUS_H_
-#define _KRAUS_H_
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <getopt.h>
+#ifndef _STRATEGY_H_
+#define _STRATEGY_H_
 
-#include "types.h"
-
-#include "module.h"
-#include "output/output.h"
-#include "strategy/strategy.h"
-
-#include "version.h"
+#include <time.h>
 
 
+#include "../module.h"
+#include "../kraus.h"
+#include "craus.h"
+#include "null.h"
 
-void usage(void);
+kraus_t (*strategy)(struct tm *);
+
+void register_strategy(module_registry_t * registry);
+
 #endif

@@ -7,18 +7,13 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _CRAUS_H_
-#define _CRAUS_H_
 
-#include <time.h>
-#include <stdlib.h>
+#ifndef _NULLSTRATEGY_H_
+#define _NULLSTRATEGY_H_
 
-#define MIN_FLOOR 1
-#define MAX_FLOOR 8
-#define SEEDMAGIC 0x330e
+#include "../kraus.h"
+#include "strategy.h"
 
-typedef unsigned char kraus_t;
-
-kraus_t kraus_floor(struct tm *date);
+kraus_t null_floor(struct tm *date);
 
 #endif

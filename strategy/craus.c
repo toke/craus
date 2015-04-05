@@ -7,13 +7,13 @@
  * ----------------------------------------------------------------------------
  */
 
-#include "kraus.h"
+#include "craus.h"
 
 /*
 *  Calculate kraus_t floor for given date
 *  returns kraus_t floor
 */
-kraus_t kraus_floor(struct tm *date) {
+kraus_t craus_floor(struct tm *date) {
   unsigned short perl_seed[2] = {0};
   double rand_number = 0;
   kraus_t floor;

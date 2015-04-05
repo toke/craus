@@ -10,14 +10,17 @@ configure_file (
 
 include_directories("${PROJECT_BINARY_DIR}")
 include_directories("${PROJECT_SOURCE_DIR}/output")
+include_directories("${PROJECT_SOURCE_DIR}/strategy")
 
 add_subdirectory(output)
+add_subdirectory(strategy)
 
-add_library(Craus craus.c)
+add_library(Module module.c)
 
 add_executable (kraus kraus.c)
-target_link_libraries(kraus Craus)
+target_link_libraries(kraus Module)
 target_link_libraries(kraus Output)
+target_link_libraries(kraus Strategy)
 
 
 set(MANPAGES docs/kraus.1)

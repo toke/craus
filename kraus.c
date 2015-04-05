@@ -10,38 +10,34 @@
 #include "kraus.h"
 
 int main(int argc, char *argv[]) {
+
   calendar_t cal = {0};
+
+  module_t * out_module;
+  module_t * strat_module;
+
+  char *output_s = NULL;
+  char *strategy_s = NULL;
   int c;
 
-  void (*output)(calendar_t *);
-  output = DEFAULT_FORMAT; // default output
 
-  while ((c = getopt(argc, argv, "hvCpsjwc:")) != -1)
+  while ((c = getopt(argc, argv, "hwc:o:s:")) != -1)
     switch (c) {
-    case 'C':
-      output = &csv_out;
-      break;
-    case 'p':
-      output = &text_out;
-      break;
-    case 's':
-      output = &simple_out;
-      break;
-    case 'j':
-      output = &json_out;
-      break;
-    case 'v':
-      output = &vcard_out;
-      break;
     case 'w': // Skip Weekends
       cal.flags.weekday = 1;
       break;
-    case 'c':
+    case 'c': // Count
       if (optarg && atoi(optarg) > 0) {
         cal.count = optarg ? atoi(optarg) : 1;
       } else {
         cal.count = 1;
       }
+      break;
+    case 'o': // Output Module
+      output_s = optarg;
+      break;
+    case 's': // Strategy Module
+      strategy_s = optarg;
       break;
     case 'h':
       usage();
@@ -50,8 +46,15 @@ int main(int argc, char *argv[]) {
     case '?':
       printf("craus %i.%i\n", craus_VERSION_MAJOR, craus_VERSION_MINOR);
 
-      if (optopt == 'c') {
+      if (optopt == 'c' ) {
         fprintf(stderr, "Option -%c requires an argument.\n", optopt);
+        usage();
+      } else if (optopt == 'o') {
+        fprintf(stderr, "Option -%c requires an argument.\n", optopt);
+        usage();
+      } else if (optopt == 's') {
+        fprintf(stderr, "Option -%c requires an argument.\n", optopt);
+        usage();
       } else if (isprint(optopt)) {
         fprintf(stderr, "Unknown option `-%c'.\n", optopt);
       } else {
@@ -62,16 +65,72 @@ int main(int argc, char *argv[]) {
       abort();
   }
 
-  time(&cal.start_date);
 
+  module_registry_t strategy_modules = {
+    .name = "Strategy",
+  };
+
+  module_registry_t output_modules = {
+    .name = "Output",
+  };
+
+  register_strategy(&strategy_modules);
+  register_output(&output_modules);
+
+  // Handle output Modules
+  if (output_s != NULL) {
+    out_module = search_module(&output_modules, (module_ident_t *) output_s);
+    if (out_module == NULL) {
+      printf("Output-module not found\n\n");
+      usage_output(&output_modules);
+      return -1;
+    }
+  } else {
+    out_module = get_default_module(&output_modules);
+  }
+
+  // Handle strategy Modules
+  if (strategy_s != NULL) {
+    strat_module = search_module(&strategy_modules, (module_ident_t *) strategy_s);
+    if (strat_module == NULL) {
+      printf("Output-module not found\n\n");
+      usage_output(&strategy_modules);
+      return -1;
+    }
+  } else {
+    strat_module = get_default_module(&strategy_modules);
+  }
+
+  time(&cal.start_date);
   cal.count = cal.count ? cal.count : 1;
-  output(&cal);
+
+  output   = out_module->func;
+  strategy = strat_module->func;
+  output(&cal, strategy);
 
   return 0;
 }
 
-
 void usage(void) {
   printf("craus Version %i.%i\n", craus_VERSION_MAJOR, craus_VERSION_MINOR);
-  printf("kraus [-C|-p|-j|-v|-s] [-w] [-c count]\n");
+  printf("kraus [-o=OUTPUT MODULE] [-s=STRATEGY MODULE] [-w] [-c count]\n\n");
+
+  module_registry_t strategy_registry = {
+    .name = "Strategy",
+    .max_id = 0,
+    .default_id = 0
+  };
+  module_registry_t output_registry = {
+    .name = "Output",
+  };
+  //module_registry_t * output_registry = init_output();
+  //module_registry_t * strategy_registry = init_strategy();
+
+  register_output(&output_registry);
+  register_strategy(&strategy_registry);
+  printf("\n");
+  usage_modules(&output_registry);
+  printf("\n");
+  usage_modules(&strategy_registry);
+
 }

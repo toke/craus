@@ -5,13 +5,6 @@ add_library(CSVOutput csv.c)
 add_library(JSONOutput json.c)
 add_library(vCardOutput vcard.c)
 
-target_link_libraries(SimpleOutput Craus)
-target_link_libraries(TextOutput Craus)
-target_link_libraries(CSVOutput Craus)
-target_link_libraries(JSONOutput Craus)
-target_link_libraries(vCardOutput Craus)
-
-target_link_libraries(Output Craus SimpleOutput)
 target_link_libraries(Output SimpleOutput)
 target_link_libraries(Output TextOutput)
 target_link_libraries(Output CSVOutput)

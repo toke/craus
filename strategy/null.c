@@ -7,23 +7,8 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _KRAUS_H_
-#define _KRAUS_H_
+#include "../kraus.h"
 
-#include <stdio.h>
-#include <string.h>
-#include <ctype.h>
-#include <getopt.h>
-
-#include "types.h"
-
-#include "module.h"
-#include "output/output.h"
-#include "strategy/strategy.h"
-
-#include "version.h"
-
-
-
-void usage(void);
-#endif
+kraus_t null_floor(struct tm *date){
+  return (kraus_t) 0;
+}
