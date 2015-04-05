@@ -46,13 +46,7 @@ int main(int argc, char *argv[]) {
     case '?':
       printf("craus %i.%i\n", craus_VERSION_MAJOR, craus_VERSION_MINOR);
 
-      if (optopt == 'c' ) {
-        fprintf(stderr, "Option -%c requires an argument.\n", optopt);
-        usage();
-      } else if (optopt == 'o') {
-        fprintf(stderr, "Option -%c requires an argument.\n", optopt);
-        usage();
-      } else if (optopt == 's') {
+      if (optopt == 'c' || optopt == 'o' || optopt == 's') {
         fprintf(stderr, "Option -%c requires an argument.\n", optopt);
         usage();
       } else if (isprint(optopt)) {
@@ -93,7 +87,7 @@ int main(int argc, char *argv[]) {
   if (strategy_s != NULL) {
     strat_module = search_module(&strategy_modules, (module_ident_t *) strategy_s);
     if (strat_module == NULL) {
-      printf("Output-module not found\n\n");
+      printf("Strategy-module not found\n\n");
       usage_output(&strategy_modules);
       return -1;
     }
