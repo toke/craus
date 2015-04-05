@@ -123,8 +123,6 @@ void usage(void) {
   module_registry_t output_registry = {
     .name = "Output",
   };
-  //module_registry_t * output_registry = init_output();
-  //module_registry_t * strategy_registry = init_strategy();
 
   register_output(&output_registry);
   register_strategy(&strategy_registry);
