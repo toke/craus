@@ -29,3 +29,12 @@ target_link_libraries(kraus Strategy)
 set(MANPAGES docs/kraus.1)
 install(FILES ${MANPAGES} DESTINATION man)
 install(TARGETS kraus DESTINATION bin)
+
+enable_testing ()
+add_test (kraus kraus)
+set_tests_properties (kraus
+  PROPERTIES PASS_REGULAR_EXPRESSION "Am .* treffen wir uns in Stockwerk .?")
+add_test (kraus2 kraus -c 2)
+add_test (kraus_null kraus -s null)
+set_tests_properties (kraus_null
+PROPERTIES PASS_REGULAR_EXPRESSION "Am .* treffen wir uns in Stockwerk 0")
