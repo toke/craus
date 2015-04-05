@@ -1,3 +1,12 @@
+craus (1.4.2-1) stable; urgency=low
+
+  * Refactoring
+  * Output Modules
+  * Strategy Modules
+  * Different command-line
+
+ -- Thomas Kerpe <toke@toke.de>  Tue, 5 Apr 2015 21:37:24 +0200
+
 craus (1.3.1-1) stable; urgency=low
 
   * Added usage information
