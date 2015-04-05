@@ -42,11 +42,19 @@ void register_output(module_registry_t * registry){
     .func = &json_out
   };
 
+  module_t calendar_module ={
+    .name = "Calendar Output",
+    .ident = "calendar",
+    .func = &calendar_out
+  };
+
   register_module(registry, &text);
   register_module(registry, &simple);
   register_module(registry, &json_module);
   register_module(registry, &csv);
   register_module(registry, &vcard);
+  register_module(registry, &calendar_module);
+
 
   //printf("Modules registered: %s, %i\n", registry->name, registry->max_id);
 }

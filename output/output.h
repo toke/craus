@@ -29,6 +29,7 @@ void text_out(calendar_t *calendar, KRAUS_PTR  strategy);
 void simple_out(calendar_t *calendar, KRAUS_PTR  strategy);
 void json_out(calendar_t *calendar, KRAUS_PTR  strategy);
 void vcard_out(calendar_t *calendar, KRAUS_PTR  strategy);
+void calendar_out(calendar_t *calendar, KRAUS_PTR  strategy);
 
 
 
