@@ -1,7 +1,10 @@
 language: c
 sudo: false
 install: mkdir build ; cd build ; cmake .. ; make
-script: ctest ..
+script: kraus
 compiler:
     - clang
     - gcc
+# Run Tests
+after_script:
+- if [ -f CTestTestfile.cmake ]; then ctest -V . ; fi
