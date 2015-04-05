@@ -11,7 +11,6 @@
 #define _OUTPUT_H_
 
 #include "../types.h"
-#include "../kraus.h"
 #include "../module.h"
 
 #define MAX_OUTPUT_MODULES 10

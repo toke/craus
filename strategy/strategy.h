@@ -13,9 +13,8 @@
 
 #include <time.h>
 
-
+#include "../types.h"
 #include "../module.h"
-#include "../kraus.h"
 #include "craus.h"
 #include "null.h"
 

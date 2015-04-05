@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------------
  */
 
-#include "../kraus.h"
+#include "null.h"
 
 kraus_t null_floor(struct tm *date){
   return (kraus_t) 0;

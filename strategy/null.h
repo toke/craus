@@ -11,7 +11,6 @@
 #ifndef _NULLSTRATEGY_H_
 #define _NULLSTRATEGY_H_
 
-#include "../kraus.h"
 #include "strategy.h"
 
 kraus_t null_floor(struct tm *date);
