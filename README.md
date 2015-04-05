@@ -2,7 +2,7 @@
 
 ## Abstract
 
-This is a portable C port of the famous K.R.A.U.S. (floor of the day) application by @jautz [written in perl](https://github.com/jautz/kraus).
+This is a C port of the famous K.R.A.U.S. (floor of the day) application by @jautz [written in perl](https://github.com/jautz/kraus).
 The acronym K.R.A.U.S. stands for the German phrase "Kaffee-Runde auf unterschiedlichen Stockwerken".
 It's origin lies far in the beginning of civilisation and was once called *Tempus clausum*.
 
