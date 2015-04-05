@@ -7,17 +7,18 @@
  * ----------------------------------------------------------------------------
  */
 
-#ifndef _JSON_MODULE_H_
-#define _JSON_MODULE_H_
+#ifndef _OUTPUTMODULE_H_
+#define _OUTPUTMODULE_H_
 
-#include "output_module.h"
+#include <stdio.h>
+#include "config.h"
+#include "../types.h"
 
-#define JSON_HEAD "{\"kraus\": [\n"
-#define JSON_BODY "\t{\"date\": \"%02i.%02i.%i\", \"level\": %i}"
-#define JSON_FOOT "\n]}\n"
-#define JSON_DELIMIT ",\n"
-#define JSON_DATA kd->tm_mday, kd->tm_mon + 1, kd->tm_year + 1900, floor
+#define SU 0
+#define SA 6
 
-void json_out(calendar_t *calendar, KRAUS_PTR strategy);
+
+void (*output)(calendar_t *, void *);
+
 
 #endif

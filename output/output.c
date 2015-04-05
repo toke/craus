@@ -8,6 +8,7 @@
  */
 
 #include "output.h"
+#include "config.h"
 
 
 

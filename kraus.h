@@ -15,14 +15,12 @@
 #include <ctype.h>
 #include <getopt.h>
 
+#include "config.h"
 #include "types.h"
 
 #include "module.h"
 #include "output/output.h"
 #include "strategy/strategy.h"
-
-#include "version.h"
-
 
 
 void usage(void);

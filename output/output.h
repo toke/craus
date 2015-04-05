@@ -10,26 +10,29 @@
 #ifndef _OUTPUT_H_
 #define _OUTPUT_H_
 
+#include "config.h"
 #include "../types.h"
 #include "../module.h"
+#include "output_module.h"
+
+#include "csv.h"
+#include "json.h"
+#include "vcard.h"
+#include "text.h"
+#include "simple.h"
+
+#ifdef SUPPORT_CALENDAR
+#include "calendar.h"
+#endif
 
 #define MAX_OUTPUT_MODULES 10
 
-#define SU 0
-#define SA 6
 
 
-void (*output)(calendar_t *, void *);
 
 void register_output(module_registry_t * registry);
 void usage_output(module_registry_t * registry);
 
-void csv_out(calendar_t *calendar, KRAUS_PTR  strategy);
-void text_out(calendar_t *calendar, KRAUS_PTR  strategy);
-void simple_out(calendar_t *calendar, KRAUS_PTR  strategy);
-void json_out(calendar_t *calendar, KRAUS_PTR  strategy);
-void vcard_out(calendar_t *calendar, KRAUS_PTR  strategy);
-void calendar_out(calendar_t *calendar, KRAUS_PTR  strategy);
 
 
 

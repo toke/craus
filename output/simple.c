@@ -7,7 +7,7 @@
  * ----------------------------------------------------------------------------
  */
 
-#include "output.h"
+#include "simple.h"
 
 /*
 *  Simple numeric output

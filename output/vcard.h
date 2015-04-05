@@ -10,7 +10,7 @@
 #ifndef _VCARD_MODULE_H_
 #define _VCARD_MODULE_H_
 
-#include "output.h"
+#include "output_module.h"
 
 void vcard_out(calendar_t *calendar, KRAUS_PTR strategy);
 
