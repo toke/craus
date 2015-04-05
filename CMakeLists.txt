@@ -3,6 +3,11 @@ project (craus)
 set (craus_VERSION_MAJOR 1)
 set (craus_VERSION_MINOR 4)
 
+set (CPACK_PACKAGE_NAME "craus")
+set (CPACK_PACKAGE_FILE_NAME kraus)
+set (CPACK_PACKAGE_CONTACT "toke@toke.de")
+
+
 # configure a header file to pass some of the CMake settings
 # to the source code
 configure_file (
@@ -30,6 +35,7 @@ set(MANPAGES docs/kraus.1)
 install(FILES ${MANPAGES} DESTINATION man)
 install(TARGETS kraus DESTINATION bin)
 
+
 enable_testing ()
 add_test (kraus kraus)
 set_tests_properties (kraus
@@ -38,3 +44,6 @@ add_test (kraus2 kraus -c 2)
 add_test (kraus_null kraus -s null)
 set_tests_properties (kraus_null
 PROPERTIES PASS_REGULAR_EXPRESSION "Am ..\\... treffen wir uns in Stockwerk 0")
+
+
+INCLUDE(CPack)
