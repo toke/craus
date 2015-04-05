@@ -1,12 +1,24 @@
 cmake_minimum_required (VERSION 2.8.7)
 project (craus)
-set (craus_VERSION_MAJOR 1)
-set (craus_VERSION_MINOR 4)
+set (VERSION_MAJOR 1)
+set (VERSION_MINOR 4)
+set (VERSION_PATCH 2)
+
+SET(CPACK_PACKAGE_VERSION_MAJOR "${VERSION_MAJOR}")
+SET(CPACK_PACKAGE_VERSION_MINOR "${VERSION_MINOR}")
+SET(CPACK_PACKAGE_VERSION_PATCH "${VERSION_PATCH}")
+SET(CPACK_PACKAGE_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}")
 
 set (CPACK_PACKAGE_NAME "craus")
-set (CPACK_PACKAGE_FILE_NAME kraus)
+set (CPACK_PACKAGE_DESCRIPTION_SUMMARY "K.R.A.U.S. in C")
+set (CPACK_PACKAGE_FILE_NAME "craus-${CPACK_PACKAGE_VERSION}")
 set (CPACK_PACKAGE_CONTACT "toke@toke.de")
+set (CPACK_RESOURCE_FILE_LICENSE "${PROJECT_SOURCE_DIR}/LICENSE")
 
+set (CPACK_DEBIAN_PACKAGE_SHLIBDEPS "on")
+set (CPACK_DEBIAN_PACKAGE_PROVIDES "kraus")
+
+INCLUDE(CPack)
 
 # configure a header file to pass some of the CMake settings
 # to the source code
@@ -32,7 +44,7 @@ target_link_libraries(kraus Strategy)
 
 
 set(MANPAGES docs/kraus.1)
-install(FILES ${MANPAGES} DESTINATION man)
+install(FILES ${MANPAGES} DESTINATION ${CMAKE_INSTALL_PREFIX}/man/man1)
 install(TARGETS kraus DESTINATION bin)
 
 
@@ -46,4 +58,3 @@ set_tests_properties (kraus_null
 PROPERTIES PASS_REGULAR_EXPRESSION "Am ..\\... treffen wir uns in Stockwerk 0")
 
 
-INCLUDE(CPack)

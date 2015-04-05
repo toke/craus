@@ -70,6 +70,10 @@ or (create a debian package):
 
 or
 
+```cpack  -G DEB```
+
+or
+
 
 ```
 mkdir build

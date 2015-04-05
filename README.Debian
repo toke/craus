@@ -1,3 +1,7 @@
 ## Building from source
 
 ```debuild -i -us -uc -b```
+
+Or
+
+```cpack  -G DEB```
