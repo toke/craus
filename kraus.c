@@ -106,7 +106,7 @@ int main(int argc, char *argv[]) {
 }
 
 void usage(void) {
-  
+
   module_registry_t strategy_registry = {
     .name = "Strategy",
   };

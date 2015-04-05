@@ -11,6 +11,7 @@
 
 
 void register_strategy(module_registry_t * registry){
+
   module_t craus_strat ={
     .name = "K.R.A.U.S. in C",
     .ident = "craus",
