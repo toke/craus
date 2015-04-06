@@ -44,7 +44,7 @@ int main(int argc, char *argv[]) {
       return 0;
       break;
     case '?':
-      printf("craus %i.%i\n", VERSION_MAJOR, VERSION_MINOR);
+      printf("craus %i.%i.%i\n", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
 
       if (optopt == 'c' || optopt == 'o' || optopt == 's') {
         fprintf(stderr, "Option -%c requires an argument.\n", optopt);
@@ -117,7 +117,8 @@ void usage(void) {
   register_output(&output_registry);
   register_strategy(&strategy_registry);
 
-  printf("craus Version %i.%i\n", VERSION_MAJOR, VERSION_MINOR);
+
+  printf("craus Version %i.%i.%i\n", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
   printf("kraus [-o=OUTPUT MODULE] [-s=STRATEGY MODULE] [-w] [-c count]\n\n");
 
   printf("\n");
