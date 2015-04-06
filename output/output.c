@@ -14,21 +14,21 @@
 
 void register_output(module_registry_t * registry){
 
-  module_t text ={
+  module_t text = {
     .name = "Plain Text Output",
     .ident = "text",
     .func = &text_out
   };
   register_module(registry, &text);
 
-  module_t simple ={
+  module_t simple = {
     .name = "Simple Text Output",
     .ident = "simple",
     .func = &simple_out
   };
   register_module(registry, &simple);
 
-  module_t csv ={
+  module_t csv = {
     .name = "CSV Output",
     .ident = "csv",
     .func = &csv_out
@@ -36,7 +36,7 @@ void register_output(module_registry_t * registry){
   register_module(registry, &csv);
 
 
-  module_t vcard ={
+  module_t vcard = {
     .name = "vCard Output",
     .ident = "vcard",
     .func = &vcard_out
@@ -44,15 +44,15 @@ void register_output(module_registry_t * registry){
   register_module(registry, &vcard);
 
 
-  module_t json_module ={
+  module_t json_module = {
     .name = "JSON Output",
     .ident = "json",
     .func = &json_out
   };
   register_module(registry, &json_module);
 
-#ifdef SUPPORT_CALENDAR
-  module_t calendar_module ={
+#ifdef MOD_OUTPUT_CALENDAR
+  module_t calendar_module = {
     .name = "Calendar Output",
     .ident = "calendar",
     .func = &calendar_out
