@@ -119,7 +119,7 @@ void usage(void) {
 
 
   printf("craus Version %i.%i.%i\n", VERSION_MAJOR, VERSION_MINOR, VERSION_PATCH);
-  printf("kraus [-o=OUTPUT MODULE] [-s=STRATEGY MODULE] [-w] [-c count]\n\n");
+  printf("kraus [-o OUTPUT MODULE] [-s STRATEGY MODULE] [-w] [-c COUNT]\n\n");
 
   printf("\n");
   usage_modules(&output_registry);
