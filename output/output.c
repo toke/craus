@@ -63,7 +63,7 @@ void register_output(module_registry_t * registry){
 }
 
 void usage_output(module_registry_t * registry){
-  printf("Use output modules with -o=MODULE.\n");
-  printf("Like \"-o=%s\"\n", get_default_module(registry)->ident);
+  printf("Use output modules with -o MODULE.\n");
+  printf("Like \"-o %s\"\n", get_default_module(registry)->ident);
   usage_modules(registry);
 }
