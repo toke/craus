@@ -19,8 +19,10 @@
 #include "../module.h"
 
 #include "craus.h"
+#ifdef USE_STRATEGY_NULL
 #include "null.h"
-#ifdef MOD_STRATEGY_JAUTZ
+#endif
+#ifdef USE_STRATEGY_JAUTZ
 #include "jautz.h"
 #endif
 

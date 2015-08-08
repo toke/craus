@@ -51,7 +51,7 @@ void register_output(module_registry_t * registry){
   };
   register_module(registry, &json_module);
 
-#ifdef MOD_OUTPUT_CALENDAR
+#ifdef USE_OUTPUT_CALENDAR
   module_t calendar_module = {
     .name = "Calendar Output",
     .ident = "calendar",

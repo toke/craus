@@ -22,7 +22,7 @@
 #include "text.h"
 #include "simple.h"
 
-#ifdef MOD_OUTPUT_CALENDAR
+#ifdef USE_OUTPUT_CALENDAR
 #include "calendar.h"
 #endif
 

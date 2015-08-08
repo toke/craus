@@ -54,8 +54,10 @@ add_test (kraus kraus)
 set_tests_properties (kraus
   PROPERTIES PASS_REGULAR_EXPRESSION "Am ..\\... treffen wir uns in Stockwerk .")
 add_test (kraus2 kraus -c 2)
-add_test (kraus_null kraus -s null)
-set_tests_properties (kraus_null
-PROPERTIES PASS_REGULAR_EXPRESSION "Am ..\\... treffen wir uns in Stockwerk 0")
 
+if (MOD_STRATEGY_NULL)
+  add_test (kraus_null kraus -s null)
+  set_tests_properties (kraus_null
+    PROPERTIES PASS_REGULAR_EXPRESSION "Am ..\\... treffen wir uns in Stockwerk 0")
+endif (MOD_STRATEGY_NULL)
 

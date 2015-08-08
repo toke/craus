@@ -8,6 +8,7 @@
  */
 
 #include "strategy.h"
+#include "config.h"
 
 
 void register_strategy(module_registry_t * registry){
@@ -17,26 +18,25 @@ void register_strategy(module_registry_t * registry){
     .ident = "craus",
     .func = &craus_floor
   };
+  register_module(registry, &craus_strat);
 
+#ifdef USE_STRATEGY_NULL
   module_t null_strat ={
     .name = "Null output",
     .ident = "null",
     .func = &null_floor
   };
+  register_module(registry, &null_strat);
+#endif
 
-#ifdef MOD_STRATEGY_JAUTZ
+#ifdef USE_STRATEGY_JAUTZ
   module_t jautz_strat ={
     .name = "Jautz.org http",
     .ident = "jautz",
     .func = &jautz_floor
   };
-#endif
-
-
-  register_module(registry, &craus_strat);
-  register_module(registry, &null_strat);
-
-#ifdef MOD_STRATEGY_JAUTZ
   register_module(registry, &jautz_strat);
 #endif
+
+
 }
