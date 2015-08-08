@@ -9,12 +9,18 @@
 
 #include "jautz.h"
 
+#define BUFSIZE  10
 
 uint write_cb(char *in, uint size, uint nmemb, void *out)
 {
   uint r;
   r = size * nmemb;
-  snprintf(out, r, "%s", in);  
+  if (r < BUFSIZE) {
+  	snprintf(out, r, "%s", in);  
+  } else {
+	printf("Something bad has happend. Server returned unexpected data.\n");
+	exit (-1);
+  }
   return(r);
 }
 
@@ -24,7 +30,7 @@ kraus_t jautz_floor(struct tm *date){
   CURLcode res;
   int floor;
 
-  char docbuf[10] = {0};  
+  char docbuf[BUFSIZE] = {0};  
 
   curl = curl_easy_init();
   if(curl) {
