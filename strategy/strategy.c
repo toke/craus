@@ -24,7 +24,16 @@ void register_strategy(module_registry_t * registry){
     .func = &null_floor
   };
 
+  module_t jautz_strat ={
+    .name = "Jautz.org http",
+    .ident = "jautz",
+    .func = &jautz_floor
+  };
+
+
+
   register_module(registry, &craus_strat);
   register_module(registry, &null_strat);
+  register_module(registry, &jautz_strat);
 
 }

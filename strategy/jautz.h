@@ -8,21 +8,14 @@
  */
 
 
-#ifndef _STRATEGY_H_
-#define _STRATEGY_H_
+#ifndef _JAUTZSTRATEGY_H_
+#define _JAUTZSTRATEGY_H_
 
-#include <time.h>
+#include "strategy.h"
 #include <stdlib.h>
+#include <curl/curl.h>
+#define DEFAULT_URL "http://www.jautz.org/kraus/index.cgi?format=raw"
 
-#include "../types.h"
-#include "../module.h"
-
-#include "craus.h"
-#include "null.h"
-#include "jautz.h"
-
-kraus_t (*strategy)(struct tm *);
-
-void register_strategy(module_registry_t * registry);
+kraus_t jautz_floor(struct tm *date);
 
 #endif
