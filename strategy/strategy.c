@@ -31,7 +31,7 @@ void register_strategy(module_registry_t * registry){
 
 #ifdef USE_STRATEGY_JAUTZ
   module_t jautz_strat ={
-    .name = "Jautz.org http",
+    .name = "Jautz.org http (experimental)",
     .ident = "jautz",
     .func = &jautz_floor
   };

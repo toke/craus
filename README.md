@@ -52,7 +52,9 @@ While drand48:
 
 ## Installation
 
-Dependencies: none
+Dependencies:
+
+libcurl when build with jautz strategy module
 
 Build with:
 
