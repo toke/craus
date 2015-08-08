@@ -14,12 +14,15 @@
 #include <time.h>
 #include <stdlib.h>
 
+#include "config.h"
 #include "../types.h"
 #include "../module.h"
 
 #include "craus.h"
 #include "null.h"
+#ifdef MOD_STRATEGY_JAUTZ
 #include "jautz.h"
+#endif
 
 kraus_t (*strategy)(struct tm *);
 

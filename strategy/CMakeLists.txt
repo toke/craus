@@ -21,4 +21,7 @@ add_library(JautzStrategy jautz.c)
 
 target_link_libraries(Strategy NullStrategy)
 target_link_libraries(Strategy CrausStrategy)
+if (MOD_STRATEGY_JAUTZ)
 target_link_libraries(Strategy JautzStrategy ${CURL_LIBRARIES})
+endif (MOD_STRATEGY_JAUTZ)
+
