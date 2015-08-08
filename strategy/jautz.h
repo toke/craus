@@ -14,7 +14,8 @@
 #include "strategy.h"
 #include <stdlib.h>
 #include <curl/curl.h>
-#define DEFAULT_URL "http://www.jautz.org/kraus/index.cgi?format=raw"
+#define DEFAULT_URL "http://www.jautz.org/kraus/index.cgi?format=raw&offset=%i"
+#define BUFSIZE  10
 
 kraus_t jautz_floor(struct tm *date);
 

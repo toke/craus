@@ -9,8 +9,6 @@
 
 #include "jautz.h"
 
-#define BUFSIZE  10
-
 uint write_cb(char *in, uint size, uint nmemb, void *out)
 {
   uint r;
@@ -28,13 +26,16 @@ uint write_cb(char *in, uint size, uint nmemb, void *out)
 kraus_t jautz_floor(struct tm *date){
   CURL *curl;
   CURLcode res;
-  int floor;
-
+  kraus_t floor;
+  char url[255];
   char docbuf[BUFSIZE] = {0};  
+
+  sprintf(url, DEFAULT_URL, 0);
+  //printf("%s",url);
 
   curl = curl_easy_init();
   if(curl) {
-    curl_easy_setopt(curl, CURLOPT_URL, DEFAULT_URL);
+    curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_cb);
 
@@ -48,6 +49,7 @@ kraus_t jautz_floor(struct tm *date){
     } else {
       fprintf(stderr, "curl_easy_perform() failed: %s\n",
               curl_easy_strerror(res));
+      floor = ERROR_FLOOR;
     }
     /* always cleanup */
     curl_easy_cleanup(curl);

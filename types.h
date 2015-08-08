@@ -14,6 +14,7 @@
 #include <time.h>
 #include <stdlib.h>
 
+#define ERROR_FLOOR 255
 
 typedef unsigned char kraus_t;
 
