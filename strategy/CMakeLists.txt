@@ -7,8 +7,8 @@ if (MOD_STRATEGY_JAUTZ)
   add_definitions(-DUSE_STRATEGY_JAUTZ)
   message ("Searching for libcurl")
   find_package (
-  	CURL
-	7.16.2 REQUIRED
+    CURL
+  7.16.2 REQUIRED
   )
 endif(MOD_STRATEGY_JAUTZ)
 

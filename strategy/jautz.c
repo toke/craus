@@ -14,10 +14,10 @@ uint write_cb(char *in, uint size, uint nmemb, void *out)
   uint r;
   r = size * nmemb;
   if (r < BUFSIZE) {
-  	snprintf(out, r, "%s", in);  
+    snprintf(out, r, "%s", in);
   } else {
-	printf("Something bad has happend. Server returned unexpected data.\n");
-	exit (-1);
+    printf("Something bad has happend. Server returned unexpected data.\n");
+    exit (-1);
   }
   return(r);
 }
@@ -28,7 +28,7 @@ kraus_t jautz_floor(struct tm *date){
   CURLcode res;
   kraus_t floor;
   char url[255];
-  char docbuf[BUFSIZE] = {0};  
+  char docbuf[BUFSIZE] = {0};
 
   sprintf(url, DEFAULT_URL, 0);
   //printf("%s",url);
@@ -45,7 +45,7 @@ kraus_t jautz_floor(struct tm *date){
     res = curl_easy_perform(curl);
     /* Check for errors */
     if(res == CURLE_OK) {
-  	floor = atoi(docbuf);
+    floor = atoi(docbuf);
     } else {
       fprintf(stderr, "curl_easy_perform() failed: %s\n",
               curl_easy_strerror(res));
