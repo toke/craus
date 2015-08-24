@@ -36,4 +36,3 @@ endif (MOD_STRATEGY_JAUTZ)
 
 add_library(CrausStrategy craus.c)
 target_link_libraries(Strategy CrausStrategy)
-

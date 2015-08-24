@@ -52,14 +52,14 @@ While drand48:
 
 ## Installation
 
-Dependencies:
+### Dependencies:
 
 libcurl when build with jautz strategy module.
 
 To build without curl and jautz support use `-DMOD_STRATEGY_JAUTZ:boolean=off`
 as cmake parameter.
 
-Build with:
+### Build with:
 
 ```
 mkdir build
@@ -69,7 +69,7 @@ make
 sudo make install
 ```
 
-or (create a debian package):
+### Create a Debian package
 
 ```debuild -i -us -uc -b```
 
@@ -78,7 +78,6 @@ or
 ```cpack  -G DEB```
 
 or
-
 
 ```
 mkdir build
