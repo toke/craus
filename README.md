@@ -54,7 +54,10 @@ While drand48:
 
 Dependencies:
 
-libcurl when build with jautz strategy module
+libcurl when build with jautz strategy module.
+
+To build without curl and jautz support use `-DMOD_STRATEGY_JAUTZ:boolean=off`
+as cmake parameter.
 
 Build with:
 
