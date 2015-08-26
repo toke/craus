@@ -15,7 +15,7 @@ has been established.
 
 `kraus [-h] [-w] [-o output] [-s strategy] [-c count] `
 
-List K.R.A.U.S. floor for current date. Valid values for the -o parameter are
+List K.R.A.U.S. floor for the current date. Valid values for the -o parameter are
 `csv`, `text`, `simple`, `json`, `calendar` and `vcard`. The option `-c` followed
 by a number instructs the program to output n concurrent days in specified format.
 The option `-w` suppress output of weekends.
