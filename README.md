@@ -90,6 +90,7 @@ sudo checkinstall -D --pkgname=craus make install
 ## Bugs
 
 * This code is not multi-threading safe
+* The jautz Strategy only supports the current day and no delte
 * We have different time based problems. (Thanks John Titor for pointing this out) One of course obvious and final one is the end of our universe.
 The code does not cope with this event and users should be aware of possible side effects. [[CITATION NEEDED](http://xkcd.com/285/)]
 
@@ -100,7 +101,7 @@ reasons). I read the motto of perl in a different way. "There's more than one wa
 I saw this as my challenge.
 
 **Fun fact:** the resulting code is just slightly smaller than the complete list of all possible values.
-The compiled version is larger. But *sssshhh* this has to kept a secret.
+The compiled version is larger (of the original simple Version). But *sssshhh* this has to kept a secret.
 
 **Pro Tip:** The command `kraus -c 365 | awk -- '{ print $2 "\tKRAUS " $8 }' > calendar` will generate a file that can be fed to the linux `calendar` program.
 
