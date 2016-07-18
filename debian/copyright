@@ -3,7 +3,7 @@ Upstream-Name: craus
 Upstream-Contact: Thomas Kerpe <toke@toke.de>
 Source: https://github.com/toke/craus
 Files: *
-Copyright: 2014-2015 Thomas Kerpe
+Copyright: 2014-2016 Thomas Kerpe
 License: TCWL-23
  "THE COFFEE-WARE LICENSE" (Revision 23):
  <toke@toke.de> wrote this file. As long as you retain this notice you

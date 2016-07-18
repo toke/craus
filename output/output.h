@@ -21,6 +21,7 @@
 #include "vcard.h"
 #include "text.h"
 #include "simple.h"
+#include "neat.h"
 
 #ifdef USE_OUTPUT_CALENDAR
 #include "calendar.h"

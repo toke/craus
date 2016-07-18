@@ -3,6 +3,7 @@ option (MOD_OUTPUT_CALENDAR
 
 add_library(Output output.c)
 add_library(SimpleOutput simple.c)
+add_library(NeatOutput neat.c)
 add_library(TextOutput text.c)
 add_library(CSVOutput csv.c)
 add_library(JSONOutput json.c)
@@ -14,6 +15,7 @@ endif (MOD_OUTPUT_CALENDAR)
 
 
 target_link_libraries(Output SimpleOutput)
+target_link_libraries(Output NeatOutput)
 target_link_libraries(Output TextOutput)
 target_link_libraries(Output CSVOutput)
 target_link_libraries(Output JSONOutput)

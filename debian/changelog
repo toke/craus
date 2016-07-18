@@ -1,3 +1,10 @@
+craus (1.4.3-1) stable; urgency=medium
+
+  * Added "neat" output with fontawesome coffe mug
+
+ -- Thomas Kerpe <toke@toke.de>  Mon, 24 Aug 2015 14:15:20 +0200
+
+
 craus (1.4.2-1) stable; urgency=medium
 
   * Added experimental original KRAUS support

@@ -28,6 +28,13 @@ void register_output(module_registry_t * registry){
   };
   register_module(registry, &simple);
 
+  module_t neat = {
+    .name = "Neat Text Output with Unicode",
+    .ident = "neat",
+    .func = &neat_out
+  };
+  register_module(registry, &neat);
+
   module_t csv = {
     .name = "CSV Output",
     .ident = "csv",
