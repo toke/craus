@@ -1,3 +1,7 @@
+1.4.12:
+
+  * Added "neat" output with fontawesome coffe mug
+
 1.4.11:
 
   * Added basic KRAUS support (requires libcurl)
