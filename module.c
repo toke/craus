@@ -31,7 +31,7 @@ void usage_modules(module_registry_t * registry){
   for (i=0; i < registry->max_id; i++) {
     module = &registry->modules[i];
     printf("%s:\t%s", module->ident, module->name);
-    if (registry->default_id == i) {
+    if (registry->default_id == (char) i) {
       printf(" (default)");
     }
     printf("\n");
